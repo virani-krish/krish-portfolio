@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import WorkPage from './components/WorkPage';
 import ContactPage from './components/ContactPage';
 import ProjectDetailsPage from './components/ProjectDetailsPage';
+import NotFoundPage from './components/NotFoundPage';
 import { getProjectBySlug } from './data/projects';
 
 const getCurrentPage = () => {
@@ -27,7 +28,11 @@ const getCurrentPage = () => {
     return { page: 'contact' };
   }
 
-  return { page: 'home' };
+  if (window.location.pathname === '/') {
+    return { page: 'home' };
+  }
+
+  return { page: 'not-found' };
 };
 
 function App() {
@@ -83,10 +88,15 @@ function App() {
         <WorkPage onProjectClick={navigateToProject} />
       ) : currentPage.page === 'contact' ? (
         <ContactPage />
-      ) : currentPage.page === 'project' ? (
+      ) : currentPage.page === 'project' && activeProject ? (
         <ProjectDetailsPage
           project={activeProject}
           onBackToWork={() => navigateTo('/work')}
+        />
+      ) : currentPage.page === 'not-found' || currentPage.page === 'project' ? (
+        <NotFoundPage
+          onGoHome={() => navigateTo('/')}
+          onGoWork={() => navigateTo('/work')}
         />
       ) : (
         <>

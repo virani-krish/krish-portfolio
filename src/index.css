@@ -644,6 +644,63 @@ input, textarea {
   margin-bottom: 18px;
 }
 
+.not-found-page {
+  min-height: 100vh;
+  padding-top: 102px;
+}
+
+.not-found-section {
+  padding: 28px 0 120px;
+}
+
+.not-found-divider {
+  margin-bottom: 40px;
+}
+
+.not-found-code {
+  font-size: clamp(80px, 13vw, 180px);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  font-weight: 700;
+}
+
+.not-found-title {
+  font-size: clamp(38px, 5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+  margin-top: 8px;
+}
+
+.not-found-copy {
+  font-size: clamp(20px, 2vw, 30px);
+  max-width: 780px;
+  margin-top: 20px;
+  line-height: 1.25;
+  color: #3d3d3d;
+}
+
+.not-found-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.not-found-btn {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 20px;
+  border: 1px solid #1f1f1f;
+  background: transparent;
+  color: #1f1f1f;
+}
+
+.not-found-btn-dark {
+  background: #1f1f1f;
+  color: #f4f4f4;
+}
+
 /* ===== ABOUT ===== */
 .about-header {
   display: flex;
@@ -1027,6 +1084,10 @@ input, textarea {
     grid-template-columns: 1fr;
   }
 
+  .not-found-title {
+    max-width: 760px;
+  }
+
   .contact-page-left {
     min-height: auto;
     gap: 26px;
@@ -1177,6 +1238,10 @@ input, textarea {
     padding-top: 74px;
   }
 
+  .not-found-page {
+    padding-top: 74px;
+  }
+
   .contact-page-section {
     padding: 18px 0 52px;
   }
@@ -1224,6 +1289,15 @@ input, textarea {
 
   .project-details-section {
     padding: 18px 0 72px;
+  }
+
+  .not-found-section {
+    padding: 18px 0 72px;
+  }
+
+  .not-found-copy {
+    font-size: 18px;
+    line-height: 1.4;
   }
 
   .project-back-btn {
