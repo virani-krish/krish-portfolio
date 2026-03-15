@@ -8,6 +8,7 @@ import WorkPage from './components/WorkPage';
 import ContactPage from './components/ContactPage';
 import ProjectDetailsPage from './components/ProjectDetailsPage';
 import NotFoundPage from './components/NotFoundPage';
+import Seo from './components/Seo';
 import { getProjectBySlug } from './data/projects';
 
 const getCurrentPage = () => {
@@ -78,6 +79,7 @@ function App() {
 
   return (
     <>
+      <Seo currentPage={currentPage} activeProject={activeProject} />
       <Navbar
         onLogoClick={() => navigateTo('/')}
         onWorksClick={() => navigateTo('/work')}
@@ -99,14 +101,14 @@ function App() {
           onGoWork={() => navigateTo('/work')}
         />
       ) : (
-        <>
+        <main>
           <Hero />
           <Work
             onShowMore={() => navigateTo('/work')}
             onProjectClick={navigateToProject}
           />
           <About onContactClick={() => navigateTo('/contact')} />
-        </>
+        </main>
       )}
       <Footer onGetInTouch={() => navigateTo('/contact')} />
     </>

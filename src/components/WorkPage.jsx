@@ -21,7 +21,7 @@ const WorkPage = ({ onProjectClick }) => {
         <div className="container">
           <div className="divider work-page-divider"></div>
           <div className="work-page-header">
-            <span className="section-label">work.</span>
+            <h1 className="section-label">work.</h1>
             <p className="work-page-copy">
               A selected collection of backend-focused and full-stack projects built with
               scalable architecture, production-minded code, and clean interfaces.
@@ -37,17 +37,26 @@ const WorkPage = ({ onProjectClick }) => {
                 animate="visible"
                 variants={fadeUp}
               >
-                <button
-                  type="button"
+                <a
+                  href={`/work/${encodeURIComponent(project.slug)}`}
                   className="project-image-wrapper work-page-image-wrapper project-card-button"
-                  onClick={() => onProjectClick?.(project.slug)}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    onProjectClick?.(project.slug);
+                  }}
                   aria-label={`View details for ${project.title}`}
                 >
-                  <img src={project.image} alt={project.title} className="project-image" />
+                  <img
+                    src={project.image}
+                    alt={`${project.title} project preview`}
+                    className="project-image"
+                    loading="lazy"
+                    decoding="async"
+                  />
                   <div className="project-info">
                     <h2 className="project-title">{project.title}</h2>
                   </div>
-                </button>
+                </a>
               </motion.article>
             ))}
           </div>

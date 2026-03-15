@@ -24,7 +24,7 @@ const Navbar = ({ onLogoClick, onWorksClick, onAboutClick, onContactClick }) => 
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar" aria-label="Primary">
       <div className="container">
         <a href="/" className="navbar-logo" onClick={handleLogoClick}>KRISH</a>
         <div className="navbar-right">

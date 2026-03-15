@@ -81,6 +81,7 @@ input, textarea {
   font-weight: 500;
   color: var(--text-primary);
   text-transform: lowercase;
+  margin-top: 0;
   margin-bottom: 40px;
   letter-spacing: -1px;
   line-height: 1;

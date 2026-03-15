@@ -55,6 +55,10 @@ const ContactPage = () => {
 
           <div className="contact-page-content">
             <div className="contact-page-left">
+              <h1 className="section-label">contact.</h1>
+              <p className="contact-page-intro">
+                Let&apos;s talk about backend systems, API architecture, or your next product build.
+              </p>
               <button
                 type="button"
                 className="contact-page-email"

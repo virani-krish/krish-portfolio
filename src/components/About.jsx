@@ -8,7 +8,7 @@ const About = ({ onContactClick }) => {
       <div className="container">
         <div className="divider" style={{ marginBottom: '60px' }}></div>
         <div className="about-header">
-          <span className="section-label">about.</span>
+          <h2 className="section-label">about.</h2>
           <button type="button" className="show-more-btn" onClick={onContactClick}>Contact Us</button>
         </div>
 
@@ -31,7 +31,13 @@ const About = ({ onContactClick }) => {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
           >
-            <img src={aboutImg} alt="Krish Virani" className="about-portrait" />
+            <img
+              src={aboutImg}
+              alt="Krish Virani working portrait"
+              className="about-portrait"
+              loading="lazy"
+              decoding="async"
+            />
           </motion.div>
 
           <motion.p

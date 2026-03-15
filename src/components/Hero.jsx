@@ -30,7 +30,13 @@ const Hero = () => {
             KRISH<br />VIRANI
           </h1>
           <div className="hero-profile-wrapper">
-            <img src={profileImg} alt="Krish Virani" className="hero-profile" />
+            <img
+              src={profileImg}
+              alt="Portrait of Krish Virani"
+              className="hero-profile"
+              fetchPriority="high"
+              loading="eager"
+            />
           </div>
         </motion.div>
 

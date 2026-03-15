@@ -41,8 +41,10 @@ const ProjectDetailsPage = ({ project, onBackToWork }) => {
           <div className="project-details-hero">
             <img
               src={project.image}
-              alt={project.title}
+              alt={`${project.title} project preview`}
               className="project-details-image"
+              loading="lazy"
+              decoding="async"
             />
             <div className="project-details-main">
               <h1 className="project-details-title">{project.title}</h1>

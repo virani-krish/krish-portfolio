@@ -20,12 +20,12 @@ const Work = ({ onShowMore, onProjectClick }) => {
       <div className="container">
         <div className="divider" style={{ marginBottom: '60px' }}></div>
         <div className="work-header">
-          <span className="section-label">work.</span>
+          <h2 className="section-label">work.</h2>
           <button type="button" className="show-more-btn" onClick={onShowMore}>Show More</button>
         </div>
         <div className="projects-grid">
           {projects.map((project, index) => (
-            <motion.div
+            <motion.article
               className="project-card"
               key={project.title}
               custom={index}
@@ -34,22 +34,27 @@ const Work = ({ onShowMore, onProjectClick }) => {
               viewport={{ once: true, margin: '-50px' }}
               variants={fadeUp}
             >
-              <button
-                type="button"
+              <a
+                href={`/work/${encodeURIComponent(project.slug)}`}
                 className="project-image-wrapper project-card-button"
-                onClick={() => onProjectClick?.(project.slug)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  onProjectClick?.(project.slug);
+                }}
                 aria-label={`View details for ${project.title}`}
               >
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`${project.title} project preview`}
                   className="project-image"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="project-info">
                   <h3 className="project-title">{project.title}</h3>
                 </div>
-              </button>
-            </motion.div>
+              </a>
+            </motion.article>
           ))}
         </div>
       </div>
