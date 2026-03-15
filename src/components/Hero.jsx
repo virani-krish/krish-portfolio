@@ -50,7 +50,7 @@ const Hero = () => {
             {copied ? <span className="hero-email-status">Copied</span> : null}
           </button>
           <p className="hero-intro">
-            Hello, I'm Krish Virani, a backend developer specializing in scalable API design,
+            Hello, I'm Krish Virani, a <u className='under-line'>backend developer</u> specializing in scalable API design,
             secure server-side architecture, and reliable systems for modern web products.
           </p>
         </motion.div>
