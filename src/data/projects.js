@@ -2,7 +2,8 @@ import jobPortalImg from '../assets/images/project-job-portal.png';
 import movieBookingImg from '../assets/images/project-movie-booking.png';
 import mernImg from '../assets/images/project-mern.png';
 import restApiImg from '../assets/images/project-rest-api.png';
-import policySync from '../assets/images/project-policy-sync.png';
+// import policySync from '../assets/images/project-policy-sync.png';
+import policySync from '../assets/images/image.png';
 
 export const projects = [
   {
