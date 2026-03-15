@@ -6,17 +6,28 @@ import About from './components/About';
 import Footer from './components/Footer';
 import WorkPage from './components/WorkPage';
 import ContactPage from './components/ContactPage';
+import ProjectDetailsPage from './components/ProjectDetailsPage';
+import { getProjectBySlug } from './data/projects';
 
 const getCurrentPage = () => {
+  const projectPathMatch = window.location.pathname.match(/^\/work\/([^/]+)$/);
+
+  if (projectPathMatch) {
+    return {
+      page: 'project',
+      slug: decodeURIComponent(projectPathMatch[1]),
+    };
+  }
+
   if (window.location.pathname === '/work') {
-    return 'work';
+    return { page: 'work' };
   }
 
   if (window.location.pathname === '/contact') {
-    return 'contact';
+    return { page: 'contact' };
   }
 
-  return 'home';
+  return { page: 'home' };
 };
 
 function App() {
@@ -40,6 +51,10 @@ function App() {
     window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   };
 
+  const navigateToProject = (slug) => {
+    navigateTo(`/work/${encodeURIComponent(slug)}`);
+  };
+
   const navigateToAbout = () => {
     if (window.location.pathname !== '/') {
       navigateTo('/');
@@ -53,6 +68,9 @@ function App() {
     }, 0);
   };
 
+  const activeProject =
+    currentPage.page === 'project' ? getProjectBySlug(currentPage.slug) : null;
+
   return (
     <>
       <Navbar
@@ -61,14 +79,22 @@ function App() {
         onAboutClick={navigateToAbout}
         onContactClick={() => navigateTo('/contact')}
       />
-      {currentPage === 'work' ? (
-        <WorkPage />
-      ) : currentPage === 'contact' ? (
+      {currentPage.page === 'work' ? (
+        <WorkPage onProjectClick={navigateToProject} />
+      ) : currentPage.page === 'contact' ? (
         <ContactPage />
+      ) : currentPage.page === 'project' ? (
+        <ProjectDetailsPage
+          project={activeProject}
+          onBackToWork={() => navigateTo('/work')}
+        />
       ) : (
         <>
           <Hero />
-          <Work onShowMore={() => navigateTo('/work')} />
+          <Work
+            onShowMore={() => navigateTo('/work')}
+            onProjectClick={navigateToProject}
+          />
           <About onContactClick={() => navigateTo('/contact')} />
         </>
       )}

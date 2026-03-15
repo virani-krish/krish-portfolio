@@ -14,7 +14,7 @@ const fadeUp = {
   }),
 };
 
-const WorkPage = () => {
+const WorkPage = ({ onProjectClick }) => {
   return (
     <main className="work-page">
       <section className="work-page-hero">
@@ -37,12 +37,17 @@ const WorkPage = () => {
                 animate="visible"
                 variants={fadeUp}
               >
-                <div className="project-image-wrapper work-page-image-wrapper">
+                <button
+                  type="button"
+                  className="project-image-wrapper work-page-image-wrapper project-card-button"
+                  onClick={() => onProjectClick?.(project.slug)}
+                  aria-label={`View details for ${project.title}`}
+                >
                   <img src={project.image} alt={project.title} className="project-image" />
                   <div className="project-info">
                     <h2 className="project-title">{project.title}</h2>
                   </div>
-                </div>
+                </button>
               </motion.article>
             ))}
           </div>

@@ -14,7 +14,7 @@ const fadeUp = {
   }),
 };
 
-const Work = ({ onShowMore }) => {
+const Work = ({ onShowMore, onProjectClick }) => {
   return (
     <section id="work" className="section">
       <div className="container">
@@ -34,7 +34,12 @@ const Work = ({ onShowMore }) => {
               viewport={{ once: true, margin: '-50px' }}
               variants={fadeUp}
             >
-              <div className="project-image-wrapper">
+              <button
+                type="button"
+                className="project-image-wrapper project-card-button"
+                onClick={() => onProjectClick?.(project.slug)}
+                aria-label={`View details for ${project.title}`}
+              >
                 <img
                   src={project.image}
                   alt={project.title}
@@ -43,7 +48,7 @@ const Work = ({ onShowMore }) => {
                 <div className="project-info">
                   <h3 className="project-title">{project.title}</h3>
                 </div>
-              </div>
+              </button>
             </motion.div>
           ))}
         </div>
