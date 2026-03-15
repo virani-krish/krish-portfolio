@@ -25,7 +25,7 @@ const Footer = ({ onGetInTouch }) => {
         <div className="footer-content">
           <div className="footer-left">
             <p>+91 82643 92251</p>
-            <p>knvirani330@gmail.com</p>
+            <p>hello@krishvirani.me</p>
           </div>
           <div className="footer-center"></div>
           <div className="footer-right">

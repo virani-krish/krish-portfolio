@@ -4,7 +4,7 @@ import profileImg from '../assets/me-color.png';
 
 const Hero = () => {
   const [copied, setCopied] = useState(false);
-  const email = 'knvirani330@gmail.com';
+  const email = 'hello@krishvirani.me';
 
   const handleCopyEmail = async () => {
     try {
